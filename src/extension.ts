@@ -16,6 +16,8 @@ import { getTestRunConfig, refreshConfigs } from './utils/config';
 import { getPlatform } from './utils/platform/index';
 import { runTests } from './commands/runTests';
 import { cleanOldResults } from './commands/cleanOldResults';
+import { createWebviewPanel } from './ww';
+import { trackTests } from './x';
 
 export function activate(context: vscode.ExtensionContext) {
     let sidebarProvider = new DocumentationProvider(context.extensionUri);
@@ -78,7 +80,7 @@ export function activate(context: vscode.ExtensionContext) {
     );
 
     context.subscriptions.push(
-        vscode.commands.registerCommand('typhoon-test.runTests', () => {
+        vscode.commands.registerCommand('typhoon-test.runTestsx', () => {
             runTests();
         })
     );
@@ -103,6 +105,16 @@ export function activate(context: vscode.ExtensionContext) {
     });
 
     checkEmbeddedInterpreterPath();
+
+    context.subscriptions.push(
+        vscode.commands.registerCommand('typhoon-test.runTests', () => {
+            const pathToPython = 'path_to_python';
+            const allureDir = 'allure_output_directory';
+            const panel = createWebviewPanel();
+
+            trackTests(panel);
+        })
+    );
 }
 
 function checkEmbeddedInterpreterPath() {

@@ -73,12 +73,30 @@ export class PytestFactory {
 
     createCommand(): string {
         return isPowerShell() ? this.buildPowerShellCommand() : this.buildDefaultCommand();
-    }   
+    }
+
+    getPathToPython(): string {
+        return this.getInterpreterPath();
+    }
+
+    getArgs(): string[] {
+        return [
+            "-m pytest",
+            this.getNames(),
+            this.getMarks(),
+            this.getAdditionalOptions(),
+            this.getAllureDir(),
+            this.getCleanAllResults(),
+            this.getRealTimeLogs(),
+            "-v"
+        ];
+    }
 }
 
 function isPowerShell(): boolean {
     const shell = vscode.env.shell.toLowerCase();
-    return shell.includes('powershell') || shell.includes('pwsh');
+    // return shell.includes('powershell') || shell.includes('pwsh');
+    return false;
 }
 
 function concat(...args: string[]): string {
