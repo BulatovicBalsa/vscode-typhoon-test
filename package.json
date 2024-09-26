@@ -268,13 +268,19 @@
       },
       {
         "command": "typhoon-test.runTestsFromTestItem",
-        "title": "Run Tests From Node",
+        "title": "Run Tests From Here",
         "category": "Typhoon Test",
         "icon": "$(debug-start)"
       },
       {
         "command": "typhoon-test.collectTests",
         "title": "Collect Tests",
+        "category": "Typhoon Test",
+        "icon": "$(list-flat)"
+      },
+      {
+        "command": "typhoon-test.collectTestsFromTestItem",
+        "title": "Collect Tests From Here",
         "category": "Typhoon Test",
         "icon": "$(list-flat)"
       },
@@ -392,7 +398,22 @@
           "group": "inline"
         },
         {
+          "command": "typhoon-test.collectTestsFromTestItem",
+          "when": "viewItem == testItem || viewItem == testItem.folder",
+          "group": "inline"
+        },
+        {
+          "command": "typhoon-test.viewTestInCode",
+          "when": "viewItem == testItem",
+          "group": "inline"
+        },
+        {
           "command": "typhoon-test.runTestsFromTestItem",
+          "when": "viewItem == testItem || viewItem == testItem.folder",
+          "group": "navigation"
+        },
+        {
+          "command": "typhoon-test.collectTestsFromTestItem",
           "when": "viewItem == testItem || viewItem == testItem.folder",
           "group": "navigation"
         },
