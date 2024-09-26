@@ -349,7 +349,7 @@
       },
       {
         "view": "typhoon-test.pytestMonitorView",
-        "contents": "Run pytest tests and monitor the progress. \n [Run Tests](command:typhoon-test.runTests) \n [Collect Tests](command:typhoon-test.collectTests)"
+        "contents": "Run pytest tests and monitor the progress. Note that tests will not be collected if verbose flag is on \n [Run Tests](command:typhoon-test.runTests) \n [Collect Tests](command:typhoon-test.collectTests)"
       }
     ],
     "menus": {
