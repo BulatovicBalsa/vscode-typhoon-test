@@ -51,6 +51,10 @@ export class PytestArgumentBuilder {
         return "--generate-pdf " + new PdfArgumentBuilder().getCommand();
     }
 
+    protected getVerbose(): string {
+        return this.config.verbose ? "-v" : '';
+    }
+
     getFlags(): string[] {
         return concat(
             "-u",
@@ -64,7 +68,7 @@ export class PytestArgumentBuilder {
             this.getCleanAllResults(),
             this.getRealTimeLogs(),
             this.getPdfConfig(),
-            this.isQuiet() ? "" : "-v"
+            this.getVerbose()
         );
     }
 
