@@ -23,6 +23,7 @@ export interface TestRunConfig {
     selectTestByName?: string;
     selectTestByMark?: string;
     additionalOptions?: string;
+    verbose: boolean;
 }
 
 export class PytestRunner {
