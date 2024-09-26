@@ -81,8 +81,9 @@ export class PytestArgumentBuilder {
     }
 
     isQuiet(): boolean {
-        return this.getAdditionalOptions().endsWith("--collect-only -q") || 
-            this.getAdditionalOptions().includes("--collect-only -q ");
+        return (this.getAdditionalOptions().endsWith("--collect-only -q") || 
+            this.getAdditionalOptions().includes("--collect-only -q ")) &&
+            !this.config.verbose;
     }
 }
 
