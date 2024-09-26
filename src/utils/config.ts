@@ -34,7 +34,8 @@ export function getTestRunConfig(): TestRunConfig {
         pdfReport: getPdfReport(),
         selectTestByName: getSelectTestByName(),
         selectTestByMark: getSelectTestByMark(),
-        additionalOptions: getAdditionalOptions()
+        additionalOptions: getAdditionalOptions(),
+        verbose: getVerbose()
     };
 }
 
@@ -93,6 +94,10 @@ function getSelectTestByMark(): string | undefined {
 function getAdditionalOptions(): string | undefined {
     let options = testRunConfig.get<string | undefined>('additionalOptions');
     return options && options.trim() ? options : undefined;
+}
+
+function getVerbose(): boolean {
+    return testRunConfig.get<boolean>('verbose', true);
 }
 
 export async function updateCustomInterpreterPath(path: string) {
