@@ -147,18 +147,28 @@ export function activate(context: vscode.ExtensionContext) {
     );
 
     context.subscriptions.push(
-        vscode.commands.registerCommand('typhoon-test.collectTests', () => {
+        vscode.commands.registerCommand('typhoon-test.collectTests', (testName? :string) => {
             if (checkTestRunEnd()) {
                 return;
             }
 
+            if (typeof testName !== 'string') {
+                testName = undefined;
+            }
+
             vscode.window.withProgress({
                 location: vscode.ProgressLocation.Notification,
-                title: 'Collecting tests...',
+                title: testName ? `Collecting tests from ${testName}`: 'Collecting tests...',
                 cancellable: true
             }, (_, token) => {
-                return getRunTestPromise(token, undefined, CollectOnlyPytestArgumentBuilder);
+                return getRunTestPromise(token, testName, CollectOnlyPytestArgumentBuilder);
             });
+        })
+    );
+
+    context.subscriptions.push(
+        vscode.commands.registerCommand('typhoon-test.collectTestsFromTestItem', (item: TestItem) => {
+            vscode.commands.executeCommand('typhoon-test.collectTests', item.identifier);
         })
     );
 
