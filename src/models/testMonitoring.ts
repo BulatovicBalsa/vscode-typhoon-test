@@ -201,5 +201,5 @@ export function extractTestNameDetails(fullTestName: string): TestNameDetails {
 }
 
 export function generateDummyTestItem(): TestItem {
-    return new TestItem(TestItem.IgnoreContextValue, 'Starting...', vscode.TreeItemCollapsibleState.None, TestStatus.Running);
+    return new TestItem(TestItem.IgnoreContextValue, 'Running...', vscode.TreeItemCollapsibleState.None, TestStatus.Running);
 }
