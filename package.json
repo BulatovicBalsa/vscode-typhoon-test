@@ -127,6 +127,12 @@
           "description": "Generate PDF report after test finishes",
           "scope": "application"
         },
+        "typhoon-test.testRun.verbose": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable verbose output",
+          "scope": "application"
+        },
         "typhoon-test.testRun.selectTestByName": {
           "type": "string",
           "default": "",
