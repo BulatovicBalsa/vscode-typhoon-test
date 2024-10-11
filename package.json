@@ -1,10 +1,10 @@
 {
   "name": "tt-demo",
   "displayName": "TT Demo",
-  "description": "Typhoon test extension for VS Code",
-  "version": "0.0.22",
+  "description": "tt-demo",
+  "version": "0.0.24",
   "engines": {
-    "vscode": "^1.91.0"
+    "vscode": "^1.85.0"
   },
   "icon": "images/logo.png",
   "publisher": "balsabulatovic",
@@ -554,7 +554,7 @@
   "devDependencies": {
     "@types/mocha": "^10.0.7",
     "@types/node": "20.x",
-    "@types/vscode": "^1.91.0",
+    "@types/vscode": "^1.85.0",
     "@typescript-eslint/eslint-plugin": "^7.14.1",
     "@typescript-eslint/parser": "^7.11.0",
     "@vscode/test-cli": "^0.0.9",
